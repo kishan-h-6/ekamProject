@@ -15,7 +15,7 @@ public class UserTests extends APITest {
 
         GetSingleUserResponse user = Client(UserClient.class)
                 .getSingleUser();
-        assertNotNull(user.getData());
+        assertNotNull(user.getData().getEmail());
 
     }
 }

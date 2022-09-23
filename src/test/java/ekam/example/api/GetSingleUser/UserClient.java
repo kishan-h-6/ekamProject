@@ -1,4 +1,4 @@
-package ekam.example.api.getSingleUser;
+package ekam.example.api.GetSingleUser;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
@@ -10,11 +10,16 @@ import com.testvagrant.ekam.reports.annotations.APIStep;
 public class UserClient extends RetrofitBaseClient {
 
     private interface UserService {
-                    @GET("/api/users/2")
+
+        @GET("/api/users/2")
         Call<GetSingleUserResponse> getSingleUser();
+
+        //@POST("{{reqresURL}}/api/users")
+       // Call<AddNewUserResponse> addNewUser(@Body AddNewUserRequest request);
 
 
     }
+
 
     private final UserService service;
 
@@ -28,6 +33,7 @@ public class UserClient extends RetrofitBaseClient {
     public GetSingleUserResponse getSingleUser() {
         Call<GetSingleUserResponse> call = service.getSingleUser();
         return httpClient.execute(call);
+
     }
 
 }

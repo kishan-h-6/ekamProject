@@ -1,4 +1,4 @@
-package ekam.example.api.getSingleUser;
+package ekam.example.api.GetSingleUser;
 
 import com.testvagrant.ekam.testBases.testng.APITest;
 
@@ -8,14 +8,12 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
-public class UserTests extends APITest {
+public class SingleUserTest extends APITest {
 
     @Test(groups = "api")
-    public void shouldReturnSingleUserTest() {
-        int userId=2;
+    public void apiExampleTest() {
         GetSingleUserResponse user = Client(UserClient.class)
-                .getSingleUser(userId);
+                .getSingleUser();
         assertNotNull(user.getData().getEmail());
-
     }
 }

@@ -1,5 +1,4 @@
-package ekam.example.api.getSingleUser;
-
+package ekam.example.api.GetSingleUser;
 
 import lombok.Getter;
 

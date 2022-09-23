@@ -12,8 +12,9 @@ public class SingleUserTest extends APITest {
 
     @Test(groups = "api")
     public void apiExampleTest() {
+        int userId=2;
         GetSingleUserResponse user = Client(UserClient.class)
-                .getSingleUser();
+                .getSingleUser(userId);
         assertNotNull(user.getData().getEmail());
     }
 }

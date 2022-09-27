@@ -30,8 +30,6 @@ public class UserClient extends RetrofitBaseClient {
         timeTracker time = new timeTracker();
         Call<GetSingleUserResponse> call = service.getSingleUser();
         time.stop();
-        System.out.println(time.stop());
-
         return httpClient.execute(call);
 
     }

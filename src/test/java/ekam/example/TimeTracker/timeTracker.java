@@ -11,6 +11,7 @@ public class timeTracker {
     }
 
     public long stop() {
+        System.out.println("Total time taken for this API to Respond is : "+(System.nanoTime()-getStartTime())+" Nanoseconds");
         return System.nanoTime()-getStartTime();
     }
 

@@ -11,13 +11,14 @@ import com.testvagrant.ekam.reports.annotations.APIStep;
 public class UserClient extends RetrofitBaseClient {
 
     private interface UserService {
+        @GET("/api/users/{id}}")
+        Call<GetSingleUserResponse> getSingleUser(@Path("id") int userId);
 
         @Headers({"Content-Type: application/json"})
         @POST("/api/users")
         Call<CreateUserResponse> createUser(@Body CreateUserRequest request);
 
 
-        Call<GetSingleUserResponse> getSingleUser(int userId);
     }
 
     private final UserService service;
@@ -32,14 +33,5 @@ public class UserClient extends RetrofitBaseClient {
     public GetSingleUserResponse getSingleUser(int userId) {
         Call<GetSingleUserResponse> call = service.getSingleUser(userId);
         return httpClient.execute(call);
-
     }
-
-    @APIStep(keyword = "When", description = "I invoke createUser API")
-    public CreateUserResponse createUser(CreateUserRequest request) {
-        Call<CreateUserResponse> call = service.createUser(request);
-        return httpClient.execute(call);
-    }
-
-
 }

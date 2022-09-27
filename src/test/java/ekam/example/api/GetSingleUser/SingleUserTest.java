@@ -4,6 +4,7 @@ import com.testvagrant.ekam.testBases.testng.APITest;
 
 import static com.testvagrant.ekam.commons.LayoutInitiator.*;
 
+import ekam.example.api.UserClient;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;

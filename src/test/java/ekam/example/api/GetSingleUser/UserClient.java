@@ -1,25 +1,19 @@
-package ekam.example.api.GetSingleUser;
+package ekam.example.api;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import com.testvagrant.ekam.api.retrofit.RetrofitBaseClient;
-import retrofit2.Call;
-import retrofit2.http.*;
 import com.testvagrant.ekam.reports.annotations.APIStep;
+import ekam.example.api.GetSingleUser.GetSingleUserResponse;
+import retrofit2.Call;
+import retrofit2.http.GET;
 
 public class UserClient extends RetrofitBaseClient {
 
     private interface UserService {
-
-        @GET("/api/users/{id}")
-        Call<GetSingleUserResponse> getSingleUser(@Path("id") int userId);
-
-        //@POST("{{reqresURL}}/api/users")
-       // Call<AddNewUserResponse> addNewUser(@Body AddNewUserRequest request);
-
-
+        @GET("/api/users/2")
+        Call<GetSingleUserResponse> getSingleUser();
     }
-
 
     private final UserService service;
 
@@ -31,9 +25,7 @@ public class UserClient extends RetrofitBaseClient {
 
     @APIStep(keyword = "When", description = "I invoke getSingleUser API")
     public GetSingleUserResponse getSingleUser(int userId) {
-        Call<GetSingleUserResponse> call = service.getSingleUser(userId);
+        Call<GetSingleUserResponse> call = service.getSingleUser();
         return httpClient.execute(call);
-
     }
-
 }

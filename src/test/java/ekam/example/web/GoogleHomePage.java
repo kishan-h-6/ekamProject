@@ -10,7 +10,6 @@ public class GoogleHomePage extends WebPage {
 
     @WebStep(keyword = "When", description = "I do google search")
     public GoogleHomePage search(String text) {
-
         textbox(searchBox).setText(text);
         element(searchButton).click();
         return this;

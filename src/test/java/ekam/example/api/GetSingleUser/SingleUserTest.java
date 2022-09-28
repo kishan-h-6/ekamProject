@@ -19,5 +19,4 @@ public class SingleUserTest extends APITest {
         assertNotNull(user.getData().getEmail());
     }
 
-
 }

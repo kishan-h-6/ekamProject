@@ -25,8 +25,6 @@ public class UserClient extends RetrofitBaseClient {
         service = httpClient.getService(UserService.class);
     }
 
-
-
     @APIStep(keyword = "When", description = "I invoke getSingleUser API")
     public GetSingleUserResponse getSingleUser(int userId) {
         timeTracker time = new timeTracker();
